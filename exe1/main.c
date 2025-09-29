@@ -29,9 +29,9 @@ void bar_display(int val) {
 
 void gpio_callback(uint gpio, uint32_t events) {
     if (gpio == SW_PIN) {
-        if (events & GPIO_IRQ_EDGE_FALL) {
+        if (events & GPIO_IRQ_EDGE_RISE) {
             sw_state = true;
-        } else if (events & GPIO_IRQ_EDGE_RISE) {
+        } else if (events & GPIO_IRQ_EDGE_FALL) {
             sw_state = false;
         }
     } else if (gpio == BTN_PIN && (events & GPIO_IRQ_EDGE_FALL)) {
